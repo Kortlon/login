@@ -66,6 +66,7 @@ $_SESSION;
     }
     </style>
 	Hello, <?php echo $user_data['user_name']; ?>
+    <a href = "index.php"> Back to main page </a>
     <div id = "box">
         <form method= "post">
             <div style = "font-size: 20px; margin: 10px; ">Update Account Infromation</div>

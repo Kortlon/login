@@ -5,7 +5,7 @@ $_SESSION;
     include("functions.php");
     
     $user_data = check_login($con);
-
+	echo"hello";
 ?>
 
 
@@ -14,9 +14,15 @@ $_SESSION;
 	<title> My website </title>
 </head>
 <body>
-
+	<p></p>
 	<a href = "logout.php"> Logout </a>
+	<p></p>
 	<a href = "update.php"> Update </a>
+	<p></p>
+	<a href = "booksearch.php"> Book Search </a>
+	<p></p>
+	<a href = "reviews.php"> Reviews </a>
+	<p></p>
 	<h1> This is the index page </h1>
 	
 	<br>
