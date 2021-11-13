@@ -8,16 +8,25 @@ include("functions.php");
 $review = $_POST['review'];
 $stars = $_POST['rstar'];
 $isbn = $_SESSION['isbn'];
+
 $userid = $_SESSION['id'];
 
+$bid = "select id from books
+        where ISBN = $isbn";
+$br = mysqli_query($con, $bid);
+$row = mysqli_fetch_row($br);
+
+ echo " book id is ";
+ echo  $row[0];
+ $bookid = $row[0];
 
 if(!empty($review))
 {
     if($stars < 6 && $stars > 0)
     {
         
-        $reviewq ="insert into reviews (user_id,ISBN,review,rating) 
-        values ($userid,$isbn,'$review',$stars)";
+        $reviewq ="insert into reviews (user_id,ISBN,review,rating,book_id) 
+        values ($userid,$isbn,'$review',$stars,$bookid)";
         echo $reviewq;
         mysqli_query($con, $reviewq);
         echo $isbn;
@@ -32,7 +41,7 @@ else{
     echo"Review field is empty";
 }
 
-//$user_data = check_login($con);
+
 ?>
 
 
@@ -91,7 +100,7 @@ else{
         <form method= "post">
             <div style = "font-size: 20px; margin: 10px; ">Make Review </div>
             <label for="fname">ISBN:</label>
-            <?php echo $_SESSION['isbn']?><br></br>
+            <?php echo $_SESSION['isbn']; echo "<br></br>"; echo $_SESSION['book_id'] ;?><br></br>
             <label for="fname">Input Review:</label>
             <input  id = "textr" type = "text" name = "review"><br></br>
             <label for="fname">Rate Stars 1-5:</label>

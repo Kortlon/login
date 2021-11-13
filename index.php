@@ -6,6 +6,9 @@ $_SESSION;
     
     $user_data = check_login($con);
 	echo"hello";
+	$username = $user_data['user_name'];
+	
+
 ?>
 
 
@@ -23,6 +26,7 @@ $_SESSION;
 	<p></p>
 	<a href = "reviews.php"> Reviews </a>
 	<p></p>
+	<a href = "bookbrowse.php"> Browse </a>
 	<h1> This is the index page </h1>
 	
 	<br>

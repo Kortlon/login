@@ -81,7 +81,7 @@ if(!empty($bookisbn))
     $isbnq = "select user_id, ISBN from reviews
     where user_id = $userid AND ISBN = $bookisbn limit 1";
 
-    $isbnreal = "select * from books
+    $isbnreal = "select ISBN, id from books
     where ISBN = $bookisbn";
     $isbnrealcheck = mysqli_query($con, $isbnreal);
 
@@ -93,11 +93,13 @@ if(!empty($bookisbn))
          if($isbnr && mysqli_num_rows($isbnr) > 0 && mysqli_num_rows($isbnrealcheck) > 0)
          {
             $_SESSION['isbn'] = $bookisbn;
+            $_SESSION2['id'] = $bookid;
             header("Location: deleditreview.php");
          }
          //if review doesn't exist
          if($isbnr && mysqli_num_rows($isbnr) < 1 && mysqli_num_rows($isbnrealcheck) > 0)
          {
+             $_SESSION2['id'] = $bookid;
             $_SESSION['isbn'] = $bookisbn;
             header("Location: makereview.php");
          }

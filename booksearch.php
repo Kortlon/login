@@ -317,8 +317,8 @@ include("functions.php");
    
 //-------Charts
 //ISBN chart
-    $testq = "select  ISBN, Title, Price, First_Name, Last_Name from books
-    INNER JOIN author ON books.Author_ID = author.id
+    $testq = "select  ISBN, Title, category, Price, First_Name, Last_Name from books
+    INNER JOIN author ON books.Author_ID = author.id INNER JOIN category ON books.code = category.code
      where $whereisbn ";
     //$finalr = mysqli_query($con, $finalq);
     
@@ -332,13 +332,14 @@ include("functions.php");
             <th>ISBN</th>
             <th>Price</th>
             <th>Title</th>
+            <th>Category</th>
             <th>First Name</th>
             <th>Last Name</th>
         </tr>";
         while($row = $testr-> fetch_assoc())
         {
             echo"<tr><td>". $row["ISBN"]. "</td><td>" .
-            $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>". $row["First_Name"]. "</td><td>". $row["Last_Name"]
+            $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>" . $row["category"]. "</td><td>". $row["First_Name"]. "</td><td>". $row["Last_Name"]
             ."</td></tr>";
         }
         echo"</table>";
@@ -350,8 +351,8 @@ include("functions.php");
 //Title chart
 
     //echo $bookTitle;
-    $titlec = "select  ISBN, Title, Price, First_Name, Last_Name from books
-    INNER JOIN author ON books.Author_ID = author.id
+    $titlec = "select  ISBN, Title, category, Price, First_Name, Last_Name from books
+    INNER JOIN author ON books.Author_ID = author.id INNER JOIN category ON books.code = category.code
      where $wheretitle ";
 
  $titler = mysqli_query($con, $titlec);
@@ -365,6 +366,7 @@ include("functions.php");
         <th>ISBN</th>
         <th>Price</th>
         <th>Title</th>
+        <th>Category</th>
         <th>First Name</th>
         <th>Last Name</th>
     </tr>";
@@ -372,7 +374,7 @@ include("functions.php");
      while($row = $titler-> fetch_assoc())
      {
          echo"<tr><td>". $row["ISBN"]. "</td><td>" .
-         $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>". $row["First_Name"]. "</td><td>". $row["Last_Name"]
+         $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>" . $row["category"]. "</td><td>" . $row["First_Name"]. "</td><td>". $row["Last_Name"]
          ."</td></tr>";
      }
      echo"</table>";
@@ -382,8 +384,8 @@ include("functions.php");
  }
  //---------------------------------------
  //First name Charts
-  $fname =  "select  ISBN, Title, Price, First_Name, Last_Name from books
-  INNER JOIN author ON books.Author_ID = author.id
+  $fname =  "select  ISBN, Title, category, Price, First_Name, Last_Name from books
+  INNER JOIN author ON books.Author_ID = author.id INNER JOIN category ON books.code = category.code
    where $wherefn ";
 
    $fn = mysqli_query($con, $fname);
@@ -397,6 +399,7 @@ include("functions.php");
         <th>ISBN</th>
         <th>Price</th>
         <th>Title</th>
+        <th>Category</th>
         <th>First Name</th>
         <th>Last Name</th>
     </tr>";
@@ -404,15 +407,15 @@ include("functions.php");
      while($row = $fn-> fetch_assoc())
      {
          echo"<tr><td>". $row["ISBN"]. "</td><td>" .
-         $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>". $row["First_Name"]. "</td><td>". $row["Last_Name"]
+         $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>" . $row["category"]. "</td><td>" . $row["First_Name"]. "</td><td>". $row["Last_Name"]
          ."</td></tr>";
      }
      echo"</table>";
    }
 //--------------------------------------
 //Last name Charts
-    $lname =  "select  ISBN, Title, Price, First_Name, Last_Name from books
-    INNER JOIN author ON books.Author_ID = author.id
+    $lname =  "select  ISBN, Title, category, Price, First_Name, Last_Name from books
+    INNER JOIN author ON books.Author_ID = author.id INNER JOIN category ON books.code = category.code
  where $whereln ";
 
  $ln = mysqli_query($con, $lname);
@@ -426,6 +429,7 @@ include("functions.php");
       <th>ISBN</th>
       <th>Price</th>
       <th>Title</th>
+      <th>Category</th>
       <th>First Name</th>
       <th>Last Name</th>
   </tr>";
@@ -433,15 +437,15 @@ include("functions.php");
    while($row = $ln-> fetch_assoc())
    {
        echo"<tr><td>". $row["ISBN"]. "</td><td>" .
-       $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>". $row["First_Name"]. "</td><td>". $row["Last_Name"]
+       $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>" . $row["category"]. "</td><td>"  . $row["First_Name"]. "</td><td>". $row["Last_Name"]
        ."</td></tr>";
    }
    echo"</table>";
  }
  //Price chart
 
- $pc = "select  ISBN, Title, Price, First_Name, Last_Name from books
- INNER JOIN author ON books.Author_ID = author.id
+ $pc = "select  ISBN, Title, category, Price, First_Name, Last_Name from books
+ INNER JOIN author ON books.Author_ID = author.id INNER JOIN category ON books.code = category.code
   where $whereprice ";
 
   $pn = mysqli_query($con, $pc);
@@ -455,6 +459,7 @@ include("functions.php");
         <th>ISBN</th>
         <th>Price</th>
         <th>Title</th>
+        <th>Category</th>
         <th>First Name</th>
         <th>Last Name</th>
     </tr>";
@@ -462,7 +467,7 @@ include("functions.php");
      while($row = $pn-> fetch_assoc())
      {
          echo"<tr><td>". $row["ISBN"]. "</td><td>" .
-         $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>". $row["First_Name"]. "</td><td>". $row["Last_Name"]
+         $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>" . $row["category"]. "</td><td>" . $row["First_Name"]. "</td><td>". $row["Last_Name"]
          ."</td></tr>";
      }
      echo"</table>";
@@ -470,16 +475,16 @@ include("functions.php");
 //-------------------
 //Union Attemp
 
-    $unionq =  "select  ISBN, Title, Price, First_Name, Last_Name from books
-    INNER JOIN author ON books.Author_ID = author.id
- where $whereisbn UNION select  ISBN, Title, Price, First_Name, Last_Name from books
- INNER JOIN author ON books.Author_ID = author.id
-  where $wheretitle UNION select  ISBN, Title, Price, First_Name, Last_Name from books
-  INNER JOIN author ON books.Author_ID = author.id
-   where $wherefn UNION select  ISBN, Title, Price, First_Name, Last_Name from books
-   INNER JOIN author ON books.Author_ID = author.id
-    where $whereln UNION select  ISBN, Title, Price, First_Name, Last_Name from books
-    INNER JOIN author ON books.Author_ID = author.id
+    $unionq =  "select  ISBN, Title, category, Price, First_Name, Last_Name from books
+    INNER JOIN author ON books.Author_ID = author.id INNER JOIN category ON books.code = category.code
+ where $whereisbn UNION select  ISBN, Title, category, Price, First_Name, Last_Name from books
+ INNER JOIN author ON books.Author_ID = author.id INNER JOIN category ON books.code = category.code
+  where $wheretitle UNION select  ISBN, Title, category, Price, First_Name, Last_Name from books
+  INNER JOIN author ON books.Author_ID = author.id INNER JOIN category ON books.code = category.code
+   where $wherefn UNION select  ISBN, Title, category, Price, First_Name, Last_Name from books
+   INNER JOIN author ON books.Author_ID = author.id INNER JOIN category ON books.code = category.code
+    where $whereln UNION select  ISBN, Title, category, Price, First_Name, Last_Name from books
+    INNER JOIN author ON books.Author_ID = author.id INNER JOIN category ON books.code = category.code
      where $whereprice ";
 
     $unionr = mysqli_query($con, $unionq);
@@ -495,6 +500,7 @@ include("functions.php");
         <th>ISBN</th>
         <th>Price</th>
         <th>Title</th>
+        <th>Category</th>
         <th>First Name</th>
         <th>Last Name</th>
     </tr>";
@@ -502,7 +508,7 @@ include("functions.php");
      while($row = $unionr-> fetch_assoc())
      {
          echo"<tr><td>". $row["ISBN"]. "</td><td>" .
-         $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>". $row["First_Name"]. "</td><td>". $row["Last_Name"]
+         $row["Price"]. "</td><td>" . $row["Title"]. "</td><td>" . $row["category"]. "</td><td>". $row["First_Name"]. "</td><td>". $row["Last_Name"]
          ."</td></tr>";
      }
      echo"</table>";
