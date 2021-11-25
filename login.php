@@ -27,7 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
                 {
                     $_SESSION['user_id'] = $user_data['user_id'];
                     $_SESSION['id'] = $user_data['id'];
+                    if($user_data['isAdmin'] == 1)
+                    {
+                    header("Location: adminpage.php");
+                    }
+                    else
+                    {
                     header("Location: index.php");
+                    }
                     die;
                 }
             }
