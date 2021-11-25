@@ -31,6 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
                     {
                     header("Location: adminpage.php");
                     }
+                    elseif($user_data['isSupplier'] == 1)
+                    {
+                    header("Location: supplierpage.php");
+                    }
                     else
                     {
                     header("Location: index.php");
