@@ -17,5 +17,13 @@
     <a href = "viewuser.php">
     <button>View Customers</button>
     </a>
+    <br></br>
+    <a href = "acd.php">
+    <button>Add author details</button>
+    </a>
+    <!---  
+    add a page for admin to add contact details for authors
+
+    ---->
 </body>
 </html>

@@ -17,10 +17,15 @@ $_SESSION;
 	<title> My website </title>
 </head>
 <body>
+<p></p>
+	<a href = "viewcart.php"> view cart </a>
+	<p></p>
 	<p></p>
 	<a href = "logout.php"> Logout </a>
 	<p></p>
-	<a href = "update.php"> Update </a>
+	<a href = "cdetail.php"> Contact Detail Update </a>
+	<br></br>
+	<a href = "update.php"> Name Update </a>
 	<p></p>
 	<a href = "booksearch.php"> Book Search </a>
 	<p></p>

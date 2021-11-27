@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         echo"please enter some valid information";
     }
 }
-?>
+?>7
 
 <!DOCTYPE html>
 <html>

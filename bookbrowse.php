@@ -330,12 +330,22 @@
     
             foreach($_POST['row'] as $value){
                 // add to cart here
+                $cq = "select * from cart
+                        where user_id = $userid and ISBN = $value";
+                $cqs = mysqli_query($con, $cq);
+                if($cqs && mysqli_num_rows($cqs) > 0)
+                {
+                    
+                }
+                    
+               
                 $q = "insert into cart (user_id, ISBN)
                         values($userid, $value);";
                 echo "user id is:";
                 echo $userid;
                 echo"<br></br>";
                 mysqli_query($con, $q);
+                
                 echo "Chosen ISBN : ".$value.'<br/>';
             }
     
