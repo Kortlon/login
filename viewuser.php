@@ -23,7 +23,7 @@
    
     table{
         border-collapse: collapse;
-        width: 75%;
+        width: 90%;
         color: #588c7e;
         font-family: monospace;
         font-size: 25px;
@@ -72,6 +72,7 @@
                 <th> First Name </th>
                 <th> Last Name </th>
                 <th> Admin Status </th>
+                <th> Supplier Status</th>
                 </tr>";
             while($row = $userc -> fetch_assoc())
             {
@@ -85,6 +86,7 @@
                 <td> ".$row['First_Name']. "</td>
                 <td> ".$row['Last_Name']. "</td>
                 <td> ".$row['isAdmin']. "</td>
+                <td> ".$row['isSupplier']. "</td>
                 ";
             }
             echo "</form>";
