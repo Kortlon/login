@@ -1,3 +1,27 @@
+<style type = "text/css">
+    #text{
+
+        height: 35px;
+        border-radius: 5px;
+        padding: 4px;
+        border:solid thin #aaa;
+        width: 100%;
+
+    }
+    #button{
+        padding: 10px;
+        width: 100px;
+        color: rgb(0, 0, 0);
+        background-color: lightblue;
+        border: none;
+    }
+    #box{
+        background-color:grey;
+        margin: auto;
+        width: 600px;
+        padding: 20px;
+    }
+    </style>
 <html>
     <p></p>
 	<a href = "logout.php"> Logout </a>
@@ -12,7 +36,7 @@
     <form method="post">
     <label for = "bookisbn"> Book ISBN: </label>
     <input id = "text" type = "text" name = "isbn"> 
-    <input id = "button" type = "submit"  value = "Login"><br></br>
+    <input id = "button" type = "submit"  value = "Check"><br></br>
     </form>
 </html>
 <?php
@@ -53,7 +77,7 @@ session_start();
         echo "isbn exist";
         
         
-        $cs = "select * from stock
+        $cs = "select * from books
                 Where ISBN = $isbn and supplier_ID = $supid";
         $csq = mysqli_query($con, $cs);
         if($csq && mysqli_num_rows($csq) > 0)

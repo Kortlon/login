@@ -51,17 +51,37 @@
     <?php
     session_start();
     $_SESSION;
-    //$user_data = check_login($con);
     include ("connection.php");
     include("functions.php");
+    
+    $user_data = check_login($con);
     $isbn = $_SESSION['isbn'];
     $qn = $_POST['qty'];
- 
+    
+    $ids = "select id from supplier
+        where user_id = $user_data[id];";
+
+        $idsq = mysqli_query($con, $ids);
+        $row = mysqli_fetch_row($idsq);
+
+
     $qty = "select quantity from stock
             where ISBN = $_SESSION[isbn]";
     $qtyq = mysqli_query($con, $qty);
     $rows = mysqli_fetch_row($qtyq);
     
+if($qtyq && mysqli_num_rows($qtyq) == 0)
+{
+echo "needs to add to stock";
+$rows[0] = '';
+
+$int = "insert into stock (ISBN, supplier_ID, quantity)
+    values ($isbn, $row[0], $qn )";
+
+mysqli_query($con, $int);
+
+}
+
     $update = "update stock
                 SET quantity =  $qn
                 where ISBN = $_SESSION[isbn]";

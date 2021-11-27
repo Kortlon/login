@@ -24,7 +24,7 @@
    
     table{
         border-collapse: collapse;
-        width: 75%;
+        width: 90%;
         color: #588c7e;
         font-family: monospace;
         font-size: 25px;
@@ -40,7 +40,7 @@
         background-color: #f2f2f2;
     }
     </style>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
         $(function () {
             //Assign Click event to Button.
@@ -100,11 +100,12 @@
            // echo "title";
                
                 
-            $ar = "select * , First_Name, category, ROUND(AVG(rating),1) as rating from books
+            $ar = "select * , First_Name, category, ROUND(AVG(rating),1) as rating, quantity from books
             INNER JOIN reviews
             ON books.ISBN = reviews.ISBN
             INNER JOIN author ON books.Author_ID = author.id 
             INNER JOIN category ON books.code = category.code
+            INNER JOIN stock ON books.ISBN = stock.ISBN
             group by books.ISBN
             order by books.Title
        ";
@@ -113,6 +114,7 @@
               {
               echo"<table>
               <tr>
+              <th> </th>
               <th>ISBN</th>
               <th>Title</th>
               <th>First Name</th>
@@ -120,13 +122,26 @@
               <th>Category</th>
                <th>Publication Date</th>
                <th>Stars</th>
+               <th> Stock </th>
               </tr>";
               while($row = $qr-> fetch_assoc() )
             {
-                   echo"<tr><td>" .$row['ISBN']. "</td><td>" . $row["Title"]. "</td><td>" .
-                     $row["First_Name"]. "</td><td>" . $row["Last_Name"]. "</td><td>" . $row["category"]. "</td><td>". $row["Publication_Date"]. 
-                      "</td><td>". $row["rating"]
-                        ."</td></tr>";
+                echo"
+    
+                <tr>
+                <td><input type= 'checkbox'  name='row[]' value= ".$row['ISBN']. "></td>
+                <td>" .$row['ISBN']. "</td>
+                <td>" . $row["Title"]. "</td>
+                <td>" . $row["First_Name"]. "</td>
+                <td>" . $row["Last_Name"]. "</td>
+                <td>" . $row["category"]. "</td>
+                <td>". $row["Publication_Date"]."</td>
+                <td>". $row["rating"]."</td>
+                <td>". $row["quantity"]."</td>
+                </tr>
+                
+                ";
+                
                    }
              echo"</table>";
 
@@ -141,11 +156,12 @@
           // echo 'pub';
               
                 
-           $ar = "select * , First_Name, category, ROUND(AVG(rating),1) as rating from books
+           $ar = "select * , First_Name, category, ROUND(AVG(rating),1) as rating, quantity from books
            INNER JOIN reviews
            ON books.ISBN = reviews.ISBN
            INNER JOIN author ON books.Author_ID = author.id 
            INNER JOIN category ON books.code = category.code
+           INNER JOIN stock ON books.ISBN = stock.ISBN
            group by books.ISBN
            order by books.Publication_Date
       ";
@@ -154,6 +170,7 @@
       {
       echo"<table>
       <tr>
+      <th> </th>
       <th>ISBN</th>
       <th>Title</th>
       <th>First Name</th>
@@ -161,13 +178,26 @@
       <th>Category</th>
       <th>Publication Date</th>
       <th>Stars</th>
+      <th> Quantity </th>
   </tr>";
   while($row = $qr-> fetch_assoc() )
   {
-      echo"<tr><td>" .$row['ISBN']. "</td><td>" . $row["Title"]. "</td><td>" .
-      $row["First_Name"]. "</td><td>" . $row["Last_Name"]. "</td><td>" . $row["category"]. "</td><td>". $row["Publication_Date"]. 
-      "</td><td>". $row["rating"]
-      ."</td></tr>";
+    echo"
+    
+    <tr>
+    <td><input type= 'checkbox'  name='row[]' value= ".$row['ISBN']. "></td>
+    <td>" .$row['ISBN']. "</td>
+    <td>" . $row["Title"]. "</td>
+    <td>" . $row["First_Name"]. "</td>
+    <td>" . $row["Last_Name"]. "</td>
+    <td>" . $row["category"]. "</td>
+    <td>". $row["Publication_Date"]."</td>
+    <td>". $row["rating"]."</td>
+    <td>". $row["quantity"]."</td>
+    </tr>
+    
+    ";
+    
   }
   echo"</table>";
 
@@ -181,11 +211,12 @@
         {
            // echo "Category";
                    
-            $ar = "select * , First_Name, category, ROUND(AVG(rating),1) as rating from books
+            $ar = "select * , First_Name, category, ROUND(AVG(rating),1) as rating, quantity from books
             INNER JOIN reviews
             ON books.ISBN = reviews.ISBN
             INNER JOIN author ON books.Author_ID = author.id 
             INNER JOIN category ON books.code = category.code
+            INNER JOIN stock ON books.ISBN = stock.ISBN
             group by books.ISBN
             order by category
        ";
@@ -194,6 +225,7 @@
        {
        echo"<table>
        <tr>
+       <th> </th>
        <th>ISBN</th>
        <th>Title</th>
        <th>First Name</th>
@@ -201,13 +233,25 @@
        <th>Category</th>
        <th>Publication Date</th>
        <th>Stars</th>
+       <th> Quantity </th>
    </tr>";
    while($row = $qr-> fetch_assoc() )
    {
-       echo"<tr><td>" .$row['ISBN']. "</td><td>" . $row["Title"]. "</td><td>" .
-       $row["First_Name"]. "</td><td>" . $row["Last_Name"]. "</td><td>" . $row["category"]. "</td><td>". $row["Publication_Date"]. 
-       "</td><td>". $row["rating"]
-       ."</td></tr>";
+    echo"
+    
+    <tr>
+    <td><input type= 'checkbox'  name='row[]' value= ".$row['ISBN']. "></td>
+    <td>" .$row['ISBN']. "</td>
+    <td>" . $row["Title"]. "</td>
+    <td>" . $row["First_Name"]. "</td>
+    <td>" . $row["Last_Name"]. "</td>
+    <td>" . $row["category"]. "</td>
+    <td>". $row["Publication_Date"]."</td>
+    <td>". $row["rating"]."</td>
+    <td>". $row["quantity"]."</td>
+    </tr>
+    
+    ";
    }
    echo"</table>";
 
@@ -226,6 +270,7 @@
            ON books.ISBN = reviews.ISBN
            INNER JOIN author ON books.Author_ID = author.id 
            INNER JOIN category ON books.code = category.code
+           INNER JOIN stock ON books.ISBN = stock.ISBN
            group by books.ISBN
            order by rating
       ";
@@ -234,6 +279,7 @@
       {
       echo"<table>
       <tr>
+      <th> </th>
       <th>ISBN</th>
       <th>Title</th>
       <th>First Name</th>
@@ -241,13 +287,25 @@
       <th>Category</th>
       <th>Publication Date</th>
       <th>Stars</th>
+      <th> Quantity </th>
   </tr>";
   while($row = $qr-> fetch_assoc() )
   {
-      echo"<tr><td>" .$row['ISBN']. "</td><td>" . $row["Title"]. "</td><td>" .
-      $row["First_Name"]. "</td><td>" . $row["Last_Name"]. "</td><td>" . $row["category"]. "</td><td>". $row["Publication_Date"]. 
-      "</td><td>". $row["rating"]
-      ."</td></tr>";
+    echo"
+    
+    <tr>
+    <td><input type= 'checkbox'  name='row[]' value= ".$row['ISBN']. "></td>
+    <td>" .$row['ISBN']. "</td>
+    <td>" . $row["Title"]. "</td>
+    <td>" . $row["First_Name"]. "</td>
+    <td>" . $row["Last_Name"]. "</td>
+    <td>" . $row["category"]. "</td>
+    <td>". $row["Publication_Date"]."</td>
+    <td>". $row["rating"]."</td>
+    <td>". $row["quantity"]."</td>
+    </tr>
+    
+    ";
   }
   echo"</table>";
 
@@ -273,11 +331,12 @@
        
        
            
-           $ar = "select * , First_Name, category, ROUND(AVG(rating),1) as rating from books
+           $ar = "select * , First_Name, category, ROUND(AVG(rating),1) as rating, quantity from books
             INNER JOIN reviews
             ON books.ISBN = reviews.ISBN
             INNER JOIN author ON books.Author_ID = author.id 
             INNER JOIN category ON books.code = category.code
+            INNER JOIN stock ON books.ISBN = stock.ISBN
             group by books.ISBN
             order by books.Publication_Date
        ";
@@ -295,6 +354,7 @@
        <th>Category</th>
        <th>Publication Date</th>
        <th>Stars</th>
+       <th> Stock </th>
    </tr>";
    $i = 0;
    while($row = $qr-> fetch_assoc() )
@@ -311,6 +371,7 @@
        <td>" . $row["category"]. "</td>
        <td>". $row["Publication_Date"]."</td>
        <td>". $row["rating"]."</td>
+       <td>". $row["quantity"]."</td>
        </tr>
        
        ";
@@ -324,7 +385,7 @@
     echo"<br></br>";
     //echo $row[1];
       // echo"regular";
-      if(isset($_POST['submit'])){
+if(isset($_POST['submit'])){
 
         if(!empty($_POST['row'])) {
     
@@ -351,7 +412,7 @@
     
         }
     
-    }
+}
    }
    else{
        echo "no books";
