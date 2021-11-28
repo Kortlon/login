@@ -1,13 +1,11 @@
 
 <style type = "text/css">
     #text{
-
         height: 35px;
         border-radius: 5px;
         padding: 4px;
         border:solid thin #aaa;
         width: 100%;
-
     }
    
     #box{

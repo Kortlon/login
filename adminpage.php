@@ -14,6 +14,10 @@
     <button>View Orders</button>
     </a>
     <br></br>
+    <a href = "viewauthor.php">
+    <button>View Authors</button>
+    </a>
+    <br></br>
     <a href = "viewuser.php">
     <button>View Customers</button>
     </a>

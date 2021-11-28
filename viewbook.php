@@ -47,8 +47,8 @@
 	<p></p>
 <body onload>
 <?php
-session_start();
-$_SESSION;
+    session_start();
+    $_SESSION;
     include ("connection.php");
     include("functions.php");
     $user_data = check_login($con);
@@ -58,7 +58,7 @@ $_SESSION;
         $bs = mysqli_query($con, $bookq);
         if($bs && mysqli_num_rows($bs) > 0)
         {
-            echo "works";
+            
             echo "<form method = 'post' action = ''>";
             echo "<table id = 'table1'>
                 <tr>
