@@ -62,8 +62,7 @@
         where authorid = $aid
             SET phonenum = $phonenum, email = '$email', address= '$add' ";
 
-        mysqli_query($con, $adc);
-
+      mysqli_query($con, $adc);
       
     }
     if($checkq && mysqli_num_rows($checkq) == 0)
@@ -90,16 +89,27 @@
 
     if($cqq && mysqli_num_rows($cqq) > 0)
     {
+        echo 'here';
         $r = mysqli_fetch_row($cqq);
         
         $dob = $_POST['dob'];
         $lname = $_POST['lname'];
         $fname = $_POST['fname'];
         $gender = $_POST['gender'];
+        
+        $d = date($dob);
 
-        $addit = "update author
-                    where id = $aid
-                    SET  First_Name = '$fname', Last_Name = '$lname', DOB = $dob, Gender = '$gender'";
+  
+        $addit = "Update author
+                 
+                    SET  First_Name = '$fname', Last_Name = '$lname', DOB = '$d', Gender = '$gender'
+                    where id = $aid";
+        $d = mysqli_query($con, $addit);
+    }
+
+    if($d)
+    {
+        echo "works";
     }
 
 //
@@ -120,7 +130,8 @@
             <input  id = "text" type = "text" name = "lname"  value = "<?php echo $r[1];?>">
 
             
-            <label for="fname">D.O.B </label>
+            <label for="fname">D.O.B (Input YYYY-MM-DD) </label>
+          
             <input  id = "text" type = "text" name = "dob"  value = "<?php echo $r[2];?>">
 
             <label for="fname">Gender </label>

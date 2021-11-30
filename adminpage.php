@@ -29,6 +29,10 @@
     <a href = "updatecontact.php">
     <button>Update contact details</button>
     </a>
+    <br></br>
+    <a href = "updatebookdetails.php">
+    <button>Update book details</button>
+    </a>
     <!---  
     add a page for admin to add contact details for authors
 
