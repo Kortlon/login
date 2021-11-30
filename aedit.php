@@ -51,7 +51,7 @@
   $check = "select phonenum, email, address from contactdetails
   where authorid = $aid ";
     $checkq = mysqli_query($con, $check);
-
+//contact
     if($checkq && mysqli_num_rows($checkq) > 0)
     {
     echo "exist";
@@ -81,7 +81,28 @@
 
         mysqli_query($con, $adc);
     }
+//
 
+//bdetails
+    $cq = "select First_Name, Last_Name, DOB, Gender from author
+            where id = $aid";
+    $cqq = mysqli_query($con, $cq);
+
+    if($cqq && mysqli_num_rows($cqq) > 0)
+    {
+        $r = mysqli_fetch_row($cqq);
+        
+        $dob = $_POST['dob'];
+        $lname = $_POST['lname'];
+        $fname = $_POST['fname'];
+        $gender = $_POST['gender'];
+
+        $addit = "update author
+                    where id = $aid
+                    SET  First_Name = '$fname', Last_Name = '$lname', DOB = $dob, Gender = '$gender'";
+    }
+
+//
     if(isset($_POST['submit'])){
         header("Location: adminpage.php");
         }
@@ -92,6 +113,19 @@
         <form method= "post">
             <div style = "font-size: 20px; margin: 10px; ">Update Contact Information</div>
 
+            <label for="fname">First Name</label>
+            <input  id = "text" type = "text" name = "fname"  value = "<?php echo $r[0];?>">
+
+            <label for="fname">Last Name</label>
+            <input  id = "text" type = "text" name = "lname"  value = "<?php echo $r[1];?>">
+
+            
+            <label for="fname">D.O.B </label>
+            <input  id = "text" type = "text" name = "dob"  value = "<?php echo $r[2];?>">
+
+            <label for="fname">Gender </label>
+            <input  id = "text" type = "text" name = "gender"  value = "<?php echo $r[3];?>">
+<br></br>
             <label for="fname">phone number:</label>
             <input id = "text" type = "text" name = "phonenum"  value = "<?php echo $rows[0];?>"> 
 
@@ -102,7 +136,7 @@
             <input  id = "text" type = "text" name = "address"  value = "<?php echo $rows[2];?>">
 
 
-
+            
             <input id = "button" type = "submit"  value = "Update" name = "submit"><br></br>
 
 

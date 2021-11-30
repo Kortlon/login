@@ -23,7 +23,11 @@
     </a>
     <br></br>
     <a href = "acd.php">
-    <button>Add author details</button>
+    <button>Add/Edit author details</button>
+    </a>
+    <br></br>
+    <a href = "updatecontact.php">
+    <button>Update contact details</button>
     </a>
     <!---  
     add a page for admin to add contact details for authors

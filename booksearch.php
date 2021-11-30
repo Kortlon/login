@@ -14,6 +14,7 @@ include("functions.php");
 -->
 <!DOCTYPE html> 
 <html>
+    
 <br><br>
 <head>
         <title> Update your Account Information</title>
