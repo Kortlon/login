@@ -329,9 +329,8 @@
        
        
            
-           $ar = "select * , First_Name, category, ROUND(AVG(rating),1) as rating, quantity from books
-            INNER JOIN reviews
-            ON books.ISBN = reviews.ISBN
+           $ar = "select * , First_Name, category, ROUND(AVG(rating),1) as rating, quantity, Price from books
+            INNER JOIN reviews ON books.ISBN = reviews.ISBN
             INNER JOIN author ON books.Author_ID = author.id 
             INNER JOIN category ON books.code = category.code
             INNER JOIN stock ON books.ISBN = stock.ISBN
@@ -352,7 +351,9 @@
        <th>Category</th>
        <th>Publication Date</th>
        <th>Stars</th>
+       <th> Price </th>
        <th> Stock </th>
+
    </tr>";
    $i = 0;
    while($row = $qr-> fetch_assoc() )
@@ -369,6 +370,7 @@
        <td>" . $row["category"]. "</td>
        <td>". $row["Publication_Date"]."</td>
        <td>". $row["rating"]."</td>
+       <td>". $row["Price"]."</td>
        <td>". $row["quantity"]."</td>
        </tr>
        
@@ -396,10 +398,26 @@ if(isset($_POST['submit'])){
                 {
                     
                 }
-                    
+                $books = "select Title, Author_ID, Price from books 
+                        where ISBN = $value           ";
+                $boks = mysqli_query($con, $books);
+                $r = mysqli_fetch_row($boks);
+
+              $aid = $r[1];
+              $price = $r[2];
+
+               $ach = "select Last_Name from author
+                      where id = $aid ";
+                 $achs = mysqli_query($con, $ach);
+
+                $rs = mysqli_fetch_row($achs);
+                $ln = $rs[0];
+             
+
+            $title = $r[0];
                
-                $q = "insert into cart (user_id, ISBN)
-                        values($userid, $value);";
+                $q = "insert into cart (user_id, ISBN, Title, Last_Name, qty, PPU)
+                        values($userid, $value, '$title', '$ln', 1, $price );";
                 echo "user id is:";
                 echo $userid;
                 echo"<br></br>";

@@ -20,10 +20,13 @@ $_SESSION;
 </head>
 <body>
 <p></p>
-	<a href = "viewcart.php"> view cart </a>
+	<a href = "cart.php"> view cart </a>
 	<p></p>
 	<p></p>
 	<a href = "logout.php"> Logout </a>
+	<p></p>
+	<p></p>
+	<a href = "vieworders.php">View Orders </a>
 	<p></p>
 	<a href = "cdetail.php"> Contact Detail Update </a>
 	<br></br>
