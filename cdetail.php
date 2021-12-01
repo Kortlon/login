@@ -28,6 +28,7 @@
 <a href = "index.php"> Back to main page </a>
 <body onload>
 <?php
+error_reporting(E_ERROR | E_PARSE);
 session_start();
 $_SESSION;
     include ("connection.php");

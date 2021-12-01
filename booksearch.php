@@ -5,6 +5,7 @@ FROM tbl_countries
 GROUP BY title
 
 <?php
+error_reporting(E_ERROR | E_PARSE);
 session_start();
 include("connection.php");
 include("functions.php");

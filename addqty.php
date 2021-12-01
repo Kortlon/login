@@ -41,6 +41,7 @@
 </html>
 <?php
 session_start();
+error_reporting(E_ERROR | E_PARSE);
     include("connection.php");
     include("functions.php");
     $user_data = check_login($con);

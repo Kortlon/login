@@ -31,8 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 <html>
 <head>
         <title> Sign up</title>
+        <img class="logo" src="images/book-logo.png" alt="logo">
 </head>
 <body>
+    <!---
 <style type = "text/css">
     #text{
 
@@ -57,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         padding: 20px;
     }
     </style>
-
+--->
     <div id = "box">
         <form method= "post">
             <div style = "font-size: 20px; margin: 10px; ">Sign up</div>

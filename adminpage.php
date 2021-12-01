@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/adminpage.css">
 <html>
 <h1>Welcome Admin</h1>
 <body>

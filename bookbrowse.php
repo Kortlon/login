@@ -1,4 +1,4 @@
-
+<!---
 <style type = "text/css">
     #text{
         height: 35px;
@@ -38,6 +38,7 @@
         background-color: #f2f2f2;
     }
     </style>
+    --->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
         $(function () {
@@ -83,6 +84,7 @@
 
         </div>
 <?php
+error_reporting(E_ERROR | E_PARSE);
     session_start();
     include("connection.php");
     include("functions.php");
