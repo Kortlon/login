@@ -32,16 +32,16 @@
     <br></br>
     <a href = "updatebookdetails.php">
     <button>Update book details</button>
-    </a>
+    </a> <br></br>
     <a href = "deletebook.php">
     <button>Delete book details</button>
-    </a>
+    </a> <br></br>
     <a href = "deleteauthor.php">
     <button>Delete author details</button>
-    </a>
+    </a> <br></br>
     <a href = "deletesupplier.php">
     <button>Delete supplier details</button>
-    </a>
+    </a> <br></br>
     <!---  
     add a page for admin to add contact details for authors
 
