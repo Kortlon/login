@@ -22,6 +22,11 @@
     <a href = "viewuser.php">
     <button>View Customers</button>
     </a>
+    </a>
+    <br></br>
+    <a href = "viewsupplier.php">
+    <button>View Suppliers</button>
+    </a>
     <br></br>
     <a href = "acd.php">
     <button>Add/Edit author details</button>
