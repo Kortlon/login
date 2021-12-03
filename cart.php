@@ -1,49 +1,13 @@
-<!---
+<html>
+<a href = "index.php"> Home Page </a>
+</html>
 <style type = "text/css">
-    #text{
-
-        height: 35px;
-        border-radius: 5px;
-        padding: 4px;
-        border:solid thin #aaa;
-        width: 100%;
-
-    }
-    #textbox{
-        width: 40px;
-    }
-   
-    #box{
-        background-color:grey;
-        margin: auto;
-        width: 600px;
-        padding: 20px;
-    }
-    #boxs{
-        content: " ";
-        display: table;
-        clear: both;
-    }
-   
-    table{
-        border-collapse: collapse;
-        width: 75%;
-        color: #588c7e;
-        font-family: monospace;
-        font-size: 25px;
-        text-align: center;
-        align-self: center;
-    }
-    th{
-        background-color: #588c7e;
-        color: white;
-
-    }
-   tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
+ 
+    body{
+		background-color: lightgray;
+	}
     </style>
-    --->
+   
 <?php
 error_reporting(E_ERROR | E_PARSE);
 session_start();
@@ -51,7 +15,7 @@ include("connection.php");
 include("functions.php");
 $user_data = check_login($con);
 $id= $user_data['id'];
-echo $id;
+
 $cartq = "select ISBN, Title, Last_Name, PPU, qty from cart
         where user_id = $id
   
@@ -183,6 +147,7 @@ make suppliers rep database.
 
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -193,7 +158,7 @@ make suppliers rep database.
     <h1>user views cart here</h1>
 
     <p></p>
-	<a href = "index.php"> Home Page </a>
+	
 	<p></p>
     <input id = "button" type = "submit"  value = "Delete" name = "delete"><br></br>
     <input id = "button" type = "submit"  value = "Check Out" name = "submit"><br></br>

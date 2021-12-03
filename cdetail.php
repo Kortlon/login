@@ -21,11 +21,16 @@
         margin: auto;
         width: 300px;
         padding: 20px;
+        
+    }
+    body{
+        background-color: #0088a9 ;
     }
     </style>
 <html>
 <h1>Change your contact details</h1>
 <a href = "index.php"> Back to main page </a>
+<br></br>
 <body onload>
 <?php
 error_reporting(E_ERROR | E_PARSE);
@@ -56,7 +61,8 @@ $_SESSION;
         $rows = mysqli_fetch_row($checkq);
        
         $adc = "Update contactdetails
-            SET phonenum = $phonenum, email = '$email', address= '$add' ";
+            SET phonenum = $phonenum, email = '$email', address= '$add'
+            where userid = $id ";
 
         mysqli_query($con, $adc);
 

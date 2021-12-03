@@ -6,7 +6,10 @@
 	<a href = "logout.php"> Logout </a>
 	<p></p>
 
-
+    <a href = "query.php">
+    <button>Input Query</button>
+    </a>
+    <br></br>
     <a href = "viewbook.php">
     <button>book view</button>
     </a>

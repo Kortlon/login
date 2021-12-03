@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 }
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -61,42 +62,29 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-<style type = "text/css">
-    #text{
-
-        height: 25px;
-        border-radius: 5px;
-        padding: 4px;
-        border:solid thin #aaa;
-        width: 100%;
-
-    }
-    #button{
-        padding: 10px;
-        width: 100px;
-        color: white;
-        background-color: lightblue;
-        border: none;
-    }
-    #box{
-        background-color:grey;
-        margin: auto;
-        width: 300px;
-        padding: 20px;
-    }
-    </style>
-
-    <div id = "box">
-        <form method= "post">
-            <div style = "font-size: 20px; margin: 10px; ">Login </div>
-            <label for="fname">Username:</label>
-            <input id = "text" type = "text" name = "user_name" value = ""> <br></br>
-            <label for="fname">Password:</label>
-            <input  id = "text" type = "password" name = "password"><br></br>
-            <input id = "button" type = "submit"  value = "Login"><br></br>
-
-
-            <a href= "signup.php"> Click to Signup</a>
+</head>
+<body>
+    <header>
+        <img class="logo" src="images/book-logo.png" alt="logo">
+    </header>
+    <div class="center">
+        <h1>Login</h1>
+        <form method="post">
+            <div class="txt_field">
+                <input type="text" name="user_name" value="" required>
+                <label for="fname">Username</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password" required>
+                <label for="fname">Password</label>
+            </div>
+            <input type="submit" value="Login">
+            <div class="signup_link">
+                No account? <a href="signup.php">Signup</a>
+            </div>
         </form>
+    </div>
+</body>
+</html>
 </body>
 </html>

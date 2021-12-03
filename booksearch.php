@@ -33,7 +33,7 @@ include("functions.php");
     }
    
     #box{
-        background-color:grey;
+        background-color: #0088a9;
         margin: auto;
         width: 600px;
         padding: 20px;
@@ -42,6 +42,24 @@ include("functions.php");
         content: " ";
         display: table;
         clear: both;
+    }
+    body{
+        background-color: darkgrey;
+    }
+
+    input[type="submit"]{
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 50px;
+        border: 1px solid;
+        background: #0088a9;
+        border-radius: 25px;
+        font-size: 18px;
+        color: #e9f4fb;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
     }
    
     table{

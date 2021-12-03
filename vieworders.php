@@ -35,9 +35,10 @@
         color: white;
 
     }
-   tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
+  
+    body{
+		background-color: lightgray;
+	}
     </style>
 
 <html>
@@ -87,13 +88,7 @@ session_start();
         echo "</table>";
             
     }
-    if($vq)
-    {
-        echo "works";
-    }
-    else{
-        echo "doesn't work";
-    }
+  
 
     ?>
 </body>

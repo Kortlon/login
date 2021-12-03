@@ -7,7 +7,9 @@
     border:solid thin #aaa;
     width: 100%;
 }
-
+body{
+		background-color: lightgray;
+	}
 #box{
     background-color:grey;
     margin: auto;
@@ -34,7 +36,7 @@ th{
     color: white;
 
 }
-tr:nth-child(even) {
+tr:nth-child {
     background-color: #f2f2f2;
 }
 input[type="submit"]{
@@ -85,8 +87,7 @@ input[type="submit"]:hover{
     if ($_SERVER['REQUEST_METHOD'] == "POST")
     {
         $value = $_POST['Make'];
-        echo $value;
-        echo "<br></br>";
+        
 
  if($value == 1)
          {

@@ -38,6 +38,9 @@
    tr:nth-child(even) {
         background-color: #f2f2f2;
     }
+	body{
+		background-color: lightgray;
+	}
     </style>
 <html>
 <h1>View Orders</h1>

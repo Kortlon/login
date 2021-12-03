@@ -5,14 +5,17 @@ $_SESSION;
     include("functions.php");
     
     $user_data = check_login($con);
-	echo"hello";
+	//echo"hello";
 	$username = $user_data['user_name'];
 	
 
 ?>
 
-
-
+<style>
+	body{
+		background-color: #0088a9;
+	}
+</style>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -25,27 +28,23 @@ $_SESSION;
 	<title> My website </title>
 </head>
 <body>
-<p></p>
-	<a href = "cart.php"> view cart </a>
-	<p></p>
-	<p></p>
-	<a href = "logout.php"> Logout </a>
-	<p></p>
-	<p></p>
-	<a href = "vieworders.php">View Orders </a>
-	<p></p>
-	<a href = "cdetail.php"> Contact Detail Update </a>
-	<br></br>
-	<a href = "update.php"> Name Update </a>
-	<p></p>
-	<a href = "booksearch.php"> Book Search </a>
-	<p></p>
-	<a href = "reviews.php"> Reviews </a>
-	<p></p>
-	<a href = "bookbrowse.php"> Browse </a>
-	<h1> This is the index page </h1>
+
+	<header>
+        <a href="index.php"><img class="logo" src="images/book-logo.png" alt="logo"></a>
+        <nav>
+            <ul class="navLinks">
+				<li><a href="cart.php">Cart</a></li>
+				<li><a href="vieworders.php">View Orders</a></li>
+				<li><a href="bookbrowse.php">Browse</a></li>
+				<li><a href="booksearch.php">Book Search</a></li>
+				<li><a href="reviews.php">Reviews</a></li>
+				<li><a href="cdetail.php">Contact Details Updates</a></li>
+				<li><a href="update.php">Name Update</a></li>
+				<li>Welcome, <?php echo $user_data['user_name']; ?></li>
+				<li><a href="logout.php">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
 	
-	<br>
-	Hello, <?php echo $user_data['user_name']; ?>
 </body>
 </html>

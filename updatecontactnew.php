@@ -128,7 +128,7 @@ if($cqc && mysqli_num_rows($cqc) == 0)
             <h1> Contact Details</h1>
 
             <label for="fname">Phone Number</label>
-            <input  id = "text" type = "text" name = "address"  value = "<?php echo $rows[2];?>">
+            <input  id = "text" type = "text" name = "address"  value = "<?php echo $rows[1];?>">
 
             <label for="fname">Email</label>
             <input  id = "text" type = "text" name = "address"  value = "<?php echo $rows[2];?>">

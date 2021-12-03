@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 session_start();
 $_SESSION;
 include("connection.php");
@@ -56,10 +57,13 @@ $userid = $user_data['id'];
         width: 1200px;
         padding: 20px;
     }
-
+    body{
+        background-color: #0088a9 ;
+    }
 </style>
 <body>
 <a href = "index.php"> Back to main page </a>
+<br></br>
 <h1>User Reveiws</h1>
 
 <div id ="box">

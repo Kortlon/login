@@ -97,8 +97,9 @@ if($cart && mysqli_num_rows($cart) > 0)
     }
     echo "</form>";
     echo"</table>";
-    echo "I =:  ";
-    echo $i;
+
+
+    
     $j = 0;
     $k = $i - 1 ;
     $fname = $_POST['fname'];
