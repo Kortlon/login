@@ -51,12 +51,16 @@ $id =  $_SESSION['id'];
   echo "exist";
  
       $rows = mysqli_fetch_row($checkq);
+
      
+    
+
       $adc = "Update contactdetails
       where userid = $id
           SET phonenum = $phonenum, email = '$email', address= '$add' ";
 
       mysqli_query($con, $adc);
+      
 
     
   }
@@ -70,8 +74,8 @@ $id =  $_SESSION['id'];
       $email = $_POST['email'];
       $add    = $_POST['address'];
 
-      $adc = "insert into contactdetails (phonenum, email, address, userid)
-      values ($phonenum, '$email', '$add', $id)";
+      $adc = "insert into contactdetails (phonenum, email, address, userid, authorid)
+      values ($phonenum, '$email', '$add', $id , 0)";
 
       mysqli_query($con, $adc);
   }
@@ -101,7 +105,7 @@ if($cqc && mysqli_num_rows($cqc) == 0)
         <form method= "post">
             <div style = "font-size: 20px; margin: 10px; ">Update Contact Information</div>
 
-            <label for="fname">user name:</label>
+            <label for="fname">user name: <?php echo $row[0];?></label>
             <input id = "text" type = "text" name = "phonenum"  value = "<?php echo $row[0];?>"> 
 
             <label for="fname">password:</label>

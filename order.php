@@ -127,12 +127,16 @@ if($cart && mysqli_num_rows($cart) > 0)
             $qty = $qrs[0];
             $price = $qrs[1];
             $tp = $qty * $price;
-            $addorder = "insert into orders (user_id, value, ISBN, address, phonenum, email) 
-            values ($id ,$tp ,'$R', '$addy', $num, '$emails')";
+            $addorder = "insert into orders (user_id, value, ISBN, qty, address, phonenum, email) 
+            values ($id ,$tp ,'$R', $qty, '$addy', $num, '$emails')";
             mysqli_query($con, $addorder);
+            $delstock = "update stock
+            SET quantity = quantity - $qty
+                        where ISBN = $R
+                       ";
+            mysqli_query($con, $delstock);
 
-
-            $deletecart = "delete cart
+            $deletecart = "delete from cart
                             where user_id = $id";
             mysqli_query($con, $deletecart);
             echo "<br></br>";

@@ -47,31 +47,55 @@
     include("functions.php");
   $aid =  $_SESSION['aid'];
 
-  
-
+  echo $aid;
+ 
   $check = "select phonenum, email, address from contactdetails
   where authorid = $aid ";
     $checkq = mysqli_query($con, $check);
 //contact
+if($checkq && mysqli_num_rows($checkq) > 0)
+{
+    $rows = mysqli_fetch_row($checkq);
+}
+if($checkq && mysqli_num_rows($checkq) == 0)
+{
+    $rows[0] = '';
+    $rows[1] = '';
+    $rows[2] = '';
+}
+$cq = "select First_Name, Last_Name, DOB, Gender from author
+            where id = $aid";
+    $cqq = mysqli_query($con, $cq);
+
+
+if($cqq && mysqli_num_rows($cqq) > 0)
+{
+    $r = mysqli_fetch_row($cqq);
+}
+if($cqq && mysqli_num_rows($cqq) == 0)
+{
+
+}
+
+if(isset($_POST['submit'])){
     if($checkq && mysqli_num_rows($checkq) > 0)
     {
     echo "exist";
-   
-        $rows = mysqli_fetch_row($checkq);
+    $phonenum = $_POST['phonenum'];
+        $email = $_POST['email'];
+        $add    = $_POST['address'];
        
         $adc = "Update contactdetails
-        where authorid = $aid
-            SET phonenum = $phonenum, email = '$email', address= '$add' ";
+     
+            SET phonenum = $phonenum, email = '$email', address= '$add'
+            where authorid = $aid ";
 
       mysqli_query($con, $adc);
       
     }
     if($checkq && mysqli_num_rows($checkq) == 0)
     {
-    echo"DE";
-    $rows[0] = '';
-    $rows[1] = '';
-    $rows[2] = '';
+   
         $phonenum = $_POST['phonenum'];
         $email = $_POST['email'];
         $add    = $_POST['address'];
@@ -91,7 +115,7 @@
     if($cqq && mysqli_num_rows($cqq) > 0)
     {
         echo 'here';
-        $r = mysqli_fetch_row($cqq);
+        
         
         $dob = $_POST['dob'];
         $lname = $_POST['lname'];
@@ -112,11 +136,12 @@
     {
         echo "works";
     }
+    
+        header("Location: acd.php");
+}
 
 //
-    if(isset($_POST['submit'])){
-        header("Location: adminpage.php");
-        }
+
 ?>
 </body>
 
@@ -138,7 +163,7 @@
             <label for="fname">Gender </label>
             <input  id = "text" type = "text" name = "gender"  value = "<?php echo $r[3];?>">
 <br></br>
-            <label for="fname">phone number:</label>
+            <label for="fname">phone number:(Input XXXXXXXXXX)</label>
             <input id = "text" type = "text" name = "phonenum"  value = "<?php echo $rows[0];?>"> 
 
             <label for="fname">email:</label>

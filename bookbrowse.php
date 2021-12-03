@@ -1,67 +1,60 @@
-<!---
+
 <style type = "text/css">
-    #text{
-        height: 35px;
-        border-radius: 5px;
-        padding: 4px;
-        border:solid thin #aaa;
-        width: 100%;
-    }
-   
-    #box{
-        background-color:grey;
-        margin: auto;
-        width: 600px;
-        padding: 20px;
-    }
-    #boxs{
-        content: " ";
-        display: table;
-        clear: both;
-    }
-   
-    table{
-        border-collapse: collapse;
-        width: 90%;
-        color: #588c7e;
-        font-family: monospace;
-        font-size: 25px;
-        text-align: center;
-        align-self: center;
-    }
-    th{
-        background-color: #588c7e;
-        color: white;
+#text{
+    height: 35px;
+    border-radius: 5px;
+    padding: 4px;
+    border:solid thin #aaa;
+    width: 100%;
+}
 
-    }
-   tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
+#box{
+    background-color:grey;
+    margin: auto;
+    width: 600px;
+    padding: 20px;
+}
+#boxs{
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+table{
+    border-collapse: collapse;
+    width: 90%;
+    color: #588c7e;
+    font-family: monospace;
+    font-size: 25px;
+    text-align: center;
+    align-self: center;
+}
+th{
+    background-color: #588c7e;
+    color: white;
+
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+input[type="submit"]{
+    width:10%;
+    height: 50px;
+    border: 1px solid;
+    background: #0088a9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+input[type="submit"]:hover{
+    border-color: #0088a9;
+    transition: .5s;
+}
     </style>
-    --->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            //Assign Click event to Button.
-            $("#btnGet").click(function () {
-                var message = "Id Name                  Country\n";
 
-                //Loop through all checked CheckBoxes in GridView.
-                $("#Table1 input[type=checkbox]:checked").each(function () {
-                    var row = $(this).closest("tr")[0];
-                    message += row.cells[1].innerHTML;
-                    message += "   " + row.cells[2].innerHTML;
-                    message += "   " + row.cells[3].innerHTML;
-                    message += "\n";
-                });
-
-                //Display selected Row data in Alert Box.
-                alert(message);
-                return false;
-            });
-        });
-    </script>
-</script>
 
 ---->
 <html>
@@ -84,7 +77,7 @@
 
         </div>
 <?php
-error_reporting(E_ERROR | E_PARSE);
+    error_reporting(E_ERROR | E_PARSE);
     session_start();
     include("connection.php");
     include("functions.php");
@@ -382,8 +375,8 @@ error_reporting(E_ERROR | E_PARSE);
    echo "</form>";
    echo"</table>";
    
-   echo"number of rows: ";
-    echo $i;
+  // echo"number of rows: ";
+   // echo $i;
     echo"<br></br>";
     //echo $row[1];
       // echo"regular";
@@ -443,6 +436,6 @@ if(isset($_POST['submit'])){
 
 </body>
 <input id = "button" type = "submit"  value = "submit" name = "submit"><br></br>
-<input id = "btnGet" type="button" value="Get Selected" />
+
     </body>
 </html>
